@@ -1,4 +1,17 @@
+<<<<<<< HEAD
 
 .title {
     font-weight: bold;
+=======
+.flex-con{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-con >div {
+    margin: 18px;
+    width: 20rem;
+    border: solid #0000002e 0.3rem;
+    border-radius: 4%;
+    box-shadow: 5px 6px 14px 0px black;
+>>>>>>> jonathan
 }
