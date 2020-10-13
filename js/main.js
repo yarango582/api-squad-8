@@ -8,38 +8,46 @@ function getQuestionsNumbers(){
     return questionsQuantity;
 }
 
-function getQuestions() {
-    let numberQuestions = getQuestionsNumbers();
-    fetch(`https://opentdb.com/api.php?amount=50`)
+// function getQuestions() {
+//     let numberQuestions = getQuestionsNumbers();
+//     fetch(`https://opentdb.com/api.php?amount=${numberQuestions}`)
+//         .then(response => response.json())
+//         .then(data => printCard(data.results))
+// }
+
+function getCategory() {
+
+    fetch(`https://opentdb.com/api_category.php`)
         .then(response => response.json())
-        .then(data => getCategory(data.results))
-        .then(data => getdifficulty(data.results))
+        .then(data => listCategory(data.trivia_categories))
+    
 }
 
-function getCategory(questions){
+function listCategory(category){
 
-    let category = document.getElementById('category');
-    category.innerHTML = '';
+    let formCategory = document.getElementById('category');
+    formCategory.innerHTML = '';
 
-    questions.forEach((question, index) => {
-        let row = `<option value="${index}">${question['category']}</option>`;
-            category.innerHTML += row;
+    category.forEach((question) => {
+        let row = `<option value="${question.id}">${question.name}</option>`;
+        formCategory.innerHTML += row;
     });
 
 }
 
-function getdifficulty(questions){
+// function getdifficulty(questions){
 
-    let difficulty = document.getElementById('difficulty');
-    difficulty.innerHTML = '';
+//     let difficulty = document.getElementById('difficulty');
+//     difficulty.innerHTML = '';
 
-    questions.forEach((question, index) => {
-        let row = `<option value="${index}">${question['difficulty']}</option>`;
-        difficulty.innerHTML += row;
-    });
+//     questions.forEach((question, index) => {
+//         let row = `<option value="${index}">${question['difficulty']}</option>`;
+//         difficulty.innerHTML += row;
+//     });
 
-}
+// }
 
 
-getQuestions();
-getdifficulty();
+// getQuestions();
+
+getCategory();
