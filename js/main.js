@@ -35,19 +35,4 @@ function listCategory(category){
 
 }
 
-// function getdifficulty(questions){
-
-//     let difficulty = document.getElementById('difficulty');
-//     difficulty.innerHTML = '';
-
-//     questions.forEach((question, index) => {
-//         let row = `<option value="${index}">${question['difficulty']}</option>`;
-//         difficulty.innerHTML += row;
-//     });
-
-// }
-
-
-// getQuestions();
-
 getCategory();
