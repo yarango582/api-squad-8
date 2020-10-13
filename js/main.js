@@ -1,6 +1,6 @@
 function getQuestions() {
-	const questionsQuantity = document.getElementById("questions-number").value;
-	fetch(`https://opentdb.com/api.php?amount=${questionsQuantity}`)
+	//const questionsQuantity = document.getElementById("questions-number").value;
+	fetch(`https://opentdb.com/api.php?amount=10`)
 		.then((response) => response.json())
 		.then((data) => printC(data.results));
 }
