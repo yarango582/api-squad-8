@@ -7,7 +7,8 @@ function getQuestions() {
 function printC(questions) {
 	const container = document.getElementById("container");
 	container.innerHTML = "";
-	questions.forEach((question) => {
+	questions.forEach((question, index) => {
+		question.id = index;
 		const card = returnCard(question);
 		container.innerHTML += card;
 	});
@@ -21,33 +22,25 @@ function returnCard(x) {
                         ${returnAnswersHTML(
 													x.correct_answer,
 													x.incorrect_answers,
-													x.question
+													x.id
 												)}           
                     </div>
                 </div>`;
 	return card;
 }
 
-function returnAnswersHTML(correct, incorrects,question) {
-	const correctHTML = `<div class="form-check">
-                            <input class="form-check-input" type="radio" name="nameOf${question}" id="of${correct}" value="${correct}" checked>
-                            <label class="form-check-label" for="of${correct}">
-                            ${correct}
-                            </label>
-                        </div>`;
-
+function returnAnswersHTML(correct, incorrects, ids) {
+	incorrects.push(correct);
 	let incorrectHTML = "";
-	incorrects.forEach((incorrect) => {
+	incorrects.forEach((incorrect, index) => {
 		incorrectHTML += `<div class="form-check">
-                            <input class="form-check-input" type="radio" name="nameOf${question}" id="of${incorrect}" value="${incorrect}" checked>
-                            <label class="form-check-label" for="of${incorrect}">
+                            <input class="form-check-input" type="radio" name="${ids}" id="${ids}--${index}" value="${incorrect}" checked>
+                            <label class="form-check-label" for="${ids}--${index}">
                             ${incorrect}
                             </label>
                         </div>`;
 	});
 
-	return correctHTML + incorrectHTML;
+	return incorrectHTML;
 }
-function idDinamic(){
-
-}
+function idDinamic() {}
