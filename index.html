@@ -8,7 +8,50 @@
     <title>API SQUAD 8</title>
 </head>
 <body>
-    <div id="container" class="flex-con"></div>
-    <script src="./js/main.js"></script>
+<div class="container-fluid">
+    <div class="row mt-5 ml-5">
+        <div class="col-md4 col-lg-4">
+            <h3 class="title">Filter of search</h3>
+            <form onsubmit="event.preventDefault()">
+                <div class="form-group">
+                  <label for="numberQuestions">Elige cuantas preguntas quieres</label>
+                  <select class="form-control" id="questions-number">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="category">Categoría</label>
+                    <select class="form-control" id="category">
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="difficulty">Dificultad</label>
+                    <select class="form-control" id="difficulty">
+                      <option value="all">Todas</option>
+                      <option value="easy">Facil</option>
+                      <option value="medium">Media</option>
+                      <option value="hard">Dificil</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="type">Tipo</label>
+                    <select class="form-control" id="type">
+                      <option value="all">Todas</option>
+                      <option value="Todas">Multiples</option>
+                      <option value="Todas">Verdadero/False</option>
+                    </select>
+                  </div>
+                <button class="btn btn-primary mb-2" onclick="getQuestions()">Aceptar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="container" class="flex-con ml-5 mr-5"></div>
+<script src="./js/main.js"></script>
+
 </body>
 </html>
