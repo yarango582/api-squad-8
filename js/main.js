@@ -7,9 +7,9 @@ function getQuestionsNumbers(){
 
 function getQuestions() {
     let numberQuestions = getQuestionsNumbers();
-    const questionsCategory = document.getElementById('questions-category').value
-    const questionsDificulty = document.getElementById('questions-dificulty').value
-    const questionsType = document.getElementById('questions-type').value
+    const questionsCategory = document.getElementById('category').value
+    const questionsDificulty = document.getElementById('difficulty').value
+    const questionsType = document.getElementById('type').value
     switch(true) {
         case (questionsCategory === 'all' && questionsDificulty === 'all' && questionsType === 'all'):
             conditionalQuestion = fetch(`https://opentdb.com/api.php?amount=${numberQuestions}`)
@@ -85,7 +85,7 @@ function printCardsQuestions(questions) {
 }
 
 function returnCard(x) {
-	const card = `<div class="card">
+	const card = `<div class="card mb-5">
                     <div class="card-body">
                     <h4 class="card-title">${x.category}</h4>
                     <h5 class="card-subtitle mb-2 text-muted">${x.question}</h5>
