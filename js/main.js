@@ -116,3 +116,4 @@ function returnAnswersHTML(correct, incorrects,ids) {
 	return incorrectHTML;
 }
 getCategory()
+
