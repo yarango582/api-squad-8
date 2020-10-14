@@ -12,3 +12,16 @@
 	border-radius: 4%;
 	box-shadow: 5px 6px 14px 0px black;
 }
+.button {
+	margin-left: 5rem ;
+	margin-bottom: 3rem;
+    width: 8rem !important;
+    border: solid #0000002e 0.3rem;
+    border-radius: 4%;
+	box-shadow: 5px 6px 14px 0px black;
+	flex-wrap: nowrap;
+	
+		height: 4rem;
+		width: 5rem;
+	
+}
