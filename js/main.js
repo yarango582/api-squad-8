@@ -91,17 +91,18 @@ function returnCard(x) {
                     <h5 class="card-subtitle mb-2 text-muted">${x.question}</h5>
                         ${returnAnswersHTML(
 													x.correct_answer,
-													x.incorrect_answers
+													x.incorrect_answers,
+													x.question
 												)}           
                     </div>
                 </div>`;
 	return card;
 }
 
-function returnAnswersHTML(correct, incorrects) {
+function returnAnswersHTML(correct, incorrects,question) {
 	const correctHTML = `<div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios1">
+                            <input class="form-check-input" type="radio" name="nameOf${question}" id="of${correct}" value="${correct}" checked>
+                            <label class="form-check-label" for="of${correct}">
                             ${correct}
                             </label>
                         </div>`;
@@ -109,12 +110,15 @@ function returnAnswersHTML(correct, incorrects) {
 	let incorrectHTML = "";
 	incorrects.forEach((incorrect) => {
 		incorrectHTML += `<div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios1">
+                            <input class="form-check-input" type="radio" name="nameOf${question}" id="of${incorrect}" value="${incorrect}" checked>
+                            <label class="form-check-label" for="of${incorrect}">
                             ${incorrect}
                             </label>
                         </div>`;
 	});
 
 	return correctHTML + incorrectHTML;
+}
+function idDinamic(){
+
 }
