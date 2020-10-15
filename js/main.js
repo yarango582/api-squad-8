@@ -151,3 +151,8 @@ function imprimeresultado(x,y) {
    
 //console.log(w);
 }
+
+
+
+
+getCategory()
