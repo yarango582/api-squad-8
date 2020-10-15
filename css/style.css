@@ -1,10 +1,17 @@
+body {
+	background-image: url("../imgs/fondo.jpg");
+	background-size: cover;
+}
+
 .title {
 	font-weight: bold;
 }
+
 .flex-con {
 	display: flex;
 	flex-wrap: wrap;
 }
+
 .flex-con > div {
 	margin: 18px;
 	width: 20rem;
@@ -12,6 +19,7 @@
 	border-radius: 4%;
 	box-shadow: 5px 6px 14px 0px black;
 }
+
 .button {
 	margin-left: 5rem ;
 	margin-bottom: 3rem;
@@ -22,6 +30,21 @@
 	flex-wrap: nowrap;
 	
 		height: 4rem;
-		width: 5rem;
-	
+		width: 5rem;	
+}
+
+.container-form-selctors {
+	background-color: #E3E3E3;
+	border-radius: 15px;
+	text-align: center;
+	padding-bottom: 50px;
+	padding-top: 25px;
+	width: 40%;
+	margin-left: 30%;
+}
+
+#container {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 50px;
 }
