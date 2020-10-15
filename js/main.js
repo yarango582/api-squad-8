@@ -62,7 +62,6 @@ function getCategory() {
 }
 
 function listCategory(category){
-
     let formCategory = document.getElementById('category');
     formCategory.innerHTML = '';
     formCategory.innerHTML = `<option value="all">Todas las Categorias</option>`
@@ -70,10 +69,7 @@ function listCategory(category){
         let row = `<option value="${question.id}">${question.name}</option>`;
         formCategory.innerHTML += row;
     });
-
 }
-
-getCategory()
 
 function printCardsQuestions(questions) {
 	const container = document.getElementById("container");
@@ -122,3 +118,8 @@ function returnAnswersHTML(correct, incorrects,question) {
 function idDinamic(){
 
 }
+
+
+
+
+getCategory()
