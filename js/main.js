@@ -90,30 +90,34 @@ getCategory();
 
 function printCardsQuestions(questions) {
 	const container = document.getElementById("container");
-	const button = document.getElementById("button");
 	container.innerHTML = "";
 	questions.forEach((question, index) => {
 		question.id = index;
 		const card = returnCard(question);
 		container.innerHTML += card;
     });
+    const button = document.getElementById("button");
     button.innerHTML+=``
-	button.innerHTML += `<button class="btn btn-primary button" onclick="imprimeresultado('${questions.length-1}')">enviar</button>`;
+	button.innerHTML += `<button class="btn btn-primary button" onclick="imprimeresultado('${questions.length-1},${questions.correct_answer}')">enviar</button>`;
 }
 function returnCard(x) {
 	const card = `<div class="card mb-5">
                     <div class="card-body">
                     <h4 class="card-title">${x.category}</h4>
                     <h5 class="card-subtitle mb-2 text-muted">${x.question}</h5>
-                        ${returnAnswersHTML(
-													x.correct_answer,
-													x.incorrect_answers,
-													x.id
-												)}           
+                    <form name="formulario" id="${x.id}" action="" method="POST">
+                    ${returnAnswersHTML(
+                                    x.correct_answer,
+                                    x.incorrect_answers,
+                                    x.id
+                                )}  
+                            <input type="button" id="boton" value="Enviar">
+                        </form>   
                     </div>
                 </div>`;
 	return card;
 }
+
 
 function returnAnswersHTML(correct, incorrects, ids) {
 	incorrects.push(correct);
@@ -129,4 +133,21 @@ function returnAnswersHTML(correct, incorrects, ids) {
 		
 	}
 	return incorrectHTML;
+}
+function imprimeresultado(x,y) {
+    for (let w = 0; w < x; w++) {       
+        let memo=document.getElementsByName(w);
+        for (let i = 0; i < memo.length; i++) {
+            if (memo[i].checked) {
+                //if (memo[i].value === x.correct_answer) {
+                //    
+                //}
+                console.log ( memo[i].value)
+                console.log(y)
+                console.log ( memo[i])
+            }
+    }
+    }
+   
+console.log(w);
 }
