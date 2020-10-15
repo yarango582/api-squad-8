@@ -149,5 +149,5 @@ function imprimeresultado(x,y) {
     }
     }
    
-console.log(w);
+//console.log(w);
 }
