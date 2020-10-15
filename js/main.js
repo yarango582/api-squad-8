@@ -1,3 +1,5 @@
+let contadorButton = 0;
+
 function getQuestionsNumbers() {
 	let questionsQuantity = document.getElementById("questions-number").value;
 	questionsQuantity === "" ? (questionsQuantity = 5) : "nada por aca";
@@ -95,9 +97,12 @@ function printCardsQuestions(questions) {
 		const card = returnCard(question);
 		container.innerHTML += card;
     });
-    const button = document.getElementById("button");
-    button.innerHTML+=``
-	button.innerHTML += `<button class="btn btn-primary button" onclick="imprimeresultado('${questions.length-1},${questions.correct_answer}')">enviar</button>`;
+	const button = document.getElementById("button");
+	if(contadorButton<1){
+		button.innerHTML+=``
+		button.innerHTML += `<button class="btn btn-primary button" onclick="imprimeresultado('${questions.length-1},${questions.correct_answer}')">enviar</button>`;
+		contadorButton++;
+	}
 }
 function returnCard(x) {
 	const card = `<div class="card mb-5">
