@@ -110,8 +110,7 @@ function returnCard(x) {
                                     x.correct_answer,
                                     x.incorrect_answers,
                                     x.id
-                                )}  
-                            <input type="button" id="boton" value="Enviar">
+                                )}
                         </form>   
                     </div>
                 </div>`;
@@ -125,7 +124,7 @@ function returnAnswersHTML(correct, incorrects, ids) {
 	for (i = 0; i < incorrects.length; i++) {
 		let al = Math.floor(Math.random() * incorrects.length);
 	incorrectHTML += `<div class="form-check">
-    <input class="form-check-input" type="radio" name="${ids}" id="${ids}-${i}" value="${incorrects[i]}" checked>
+    <input class="form-check-input" type="radio" name="${ids}" id="${ids}-${i}" value="${incorrects[i]}">
     <label class="form-check-label" for="${ids}-${i}">
     ${incorrects[i]}
     </label>
