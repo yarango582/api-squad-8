@@ -86,7 +86,6 @@ function listCategory(category) {
 	});
 }
 
-getCategory();
 
 function printCardsQuestions(questions) {
 	const container = document.getElementById("container");
@@ -147,8 +146,6 @@ function imprimeresultado(x,y) {
             }
     }
     }
-   
-//console.log(w);
 }
 
 
