@@ -99,7 +99,8 @@ function printCardsQuestions(questions) {
 		container.innerHTML += card;
 	});
 	const button = document.getElementById("button");
-	button.innerHTML = `<button onclick="imprimeResultado(${questions})" class="btn btn-primary button">enviar</button>`;
+	button.innerHTML = `<button onclick="imprimeResultado('s')" class="btn btn-primary button">enviar</button>`;
+	// button.innerHTML = `<button onclick="imprimeResultado(${questions})" class="btn btn-primary button">enviar</button>`;
 }
 function returnCard(x) {
 	const card = `<div class="card mb-5">
@@ -144,47 +145,60 @@ function returnAnswersHTML(correct, incorrects, ids) {
 	return incorrectHTML;
 }
 function imprimeResultado(question) {
-	console.log(question)
+	// console.log(question)
 	let answerCorrect = 0
 	let answerIncorrect = 0
 	// const getResult = question.filter((q) => question.correct_answer === question)
+
+	// lo que esté dentro del for se ejecuta 10 veces
 	for(let i = 0; i < getQuestionsForResult.length; i++) {
 		const getLengthIncorrect = getQuestionsForResult[i].incorrect_answers
-		let xcvb = document.getElementsByName(`answer ${i}`)
-		console.log(xcvb[i].checked)
-		console.log(xcvb[i].value)
-		for(let j = 0; j < getLengthIncorrect.length; j++) {
-			let getValueQuestions = document.getElementById(`${i}-${j}`)
-			// console.log(getValueQuestions.value)
-			console.log(getValueQuestions.checked)
-		}
-		let getValueQuestions = document.getElementsByName(`answer ${i}`)
-		if(getValueQuestions[i].checked) {
-			alert('Logrado')
-		}
-		if(getValueQuestions === getQuestionsForResult[i].correct_answer) {
-			answerCorrect += 1
-		} else {
-			answerIncorrect += 1
-		}
-		console.log(getQuestionsForResult[i].correct_answer)
-		console.log(getValueQuestions[i].value)
-	}
-	console.log(answerIncorrect, answerCorrect)
+		// let xcvb = document.getElementsByName(`answer ${i}`)
+		// console.log(xcvb[i].checked)
+		// console.log(xcvb[i].value)
+		// for(let j = 0; j < getLengthIncorrect.length; j++) {
+		// 	let getValueQuestions = document.getElementById(`${i}-${j}`)
+		// 	console.log(getValueQuestions);
+		// 	// console.log(getValueQuestions.value)
+		// 	// console.log(getValueQuestions.checked)
+		// }
+		let options = document.getElementsByName(`answer ${i}`)
+		options.forEach(option => {
+			if(option.checked) {
+				console.log(option.value)
+			}
+		})
 
-    for (let w = 0; w < x; w++) {       
-        let memo=document.getElementsByName(w);
-        for (let i = 0; i < memo.length; i++) {
-            if (memo[i].checked) {
-                //if (memo[i].value === x.correct_answer) {
-                //    
-                //}
-                console.log ( memo[i].value)
-                console.log(y)
-                console.log ( memo[i])
-            }
-    }
-    }
+		// console.log(getValueQuestions);
+		// if(getValueQuestions[i].checked) {
+		// 	alert('Logrado')
+		// }
+		// if(getValueQuestions === getQuestionsForResult[i].correct_answer) {
+		// 	answerCorrect += 1
+		// } else {
+		// 	answerIncorrect += 1
+		// }
+
+
+
+		// console.log(getQuestionsForResult[i].correct_answer)
+		// console.log(getValueQuestions[i].value)
+	}
+	// console.log(answerIncorrect, answerCorrect)
+
+    // for (let w = 0; w < x; w++) {       
+    //     let memo=document.getElementsByName(w);
+    //     for (let i = 0; i < memo.length; i++) {
+    //         if (memo[i].checked) {
+    //             //if (memo[i].value === x.correct_answer) {
+    //             //    
+    //             //}
+    //             console.log ( memo[i].value)
+    //             console.log(y)
+    //             console.log ( memo[i])
+    //         }
+    // }
+    // }
 }
 
 
