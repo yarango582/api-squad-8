@@ -1,4 +1,5 @@
 let contadorButton = 0;
+let arrayCorrects = [];
 
 function getQuestionsNumbers() {
 	let questionsQuantity = document.getElementById("questions-number").value;
@@ -124,6 +125,7 @@ function returnCard(x) {
 
 function returnAnswersHTML(correct, incorrects, ids) {
 	incorrects.push(correct);
+	arrayCorrects.push(correct);
 	let incorrectHTML = "";
 	for (i = 0; i < incorrects.length; i++) {
 		let al = Math.floor(Math.random() * incorrects.length);
@@ -137,20 +139,30 @@ function returnAnswersHTML(correct, incorrects, ids) {
 	}
 	return incorrectHTML;
 }
-function imprimeresultado(x,y) {
-    for (let w = 0; w < x; w++) {       
-        let memo=document.getElementsByName(w);
-        for (let i = 0; i < memo.length; i++) {
-            if (memo[i].checked) {
-                //if (memo[i].value === x.correct_answer) {
-                //    
-                //}
-                console.log ( memo[i].value)
-                console.log(y)
-                console.log ( memo[i])
-            }
-    }
-    }
+
+function imprimeresultado(x) {
+	
+	
+
+
+	// const elementClass = document.getElementsByClassName("form-check-input");
+	// console.log(elementClass)
+	
+
+	// console.log(y);
+    // for (let w = 0; w < x; w++) {       
+    //     let memo=document.getElementsByName(w);
+    //     for (let i = 0; i < memo.length; i++) {
+    //         if (memo[i].checked) {
+    //             //if (memo[i].value === x.correct_answer) {
+    //             //    
+    //             //}
+    //             console.log ( memo[i].value)
+    //             console.log(y)
+    //             console.log ( memo[i])
+    //         }
+    // }
+    // }
 }
 
 
