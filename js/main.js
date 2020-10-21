@@ -99,8 +99,7 @@ function printCardsQuestions(questions) {
 		container.innerHTML += card;
 	});
 	const button = document.getElementById("button");
-	button.innerHTML = `<button onclick="imprimeResultado('s')" class="btn btn-primary button">enviar</button>`;
-	// button.innerHTML = `<button onclick="imprimeResultado(${questions})" class="btn btn-primary button">enviar</button>`;
+	button.innerHTML = `<button onclick="imprimeResultado()" class="btn btn-primary button">enviar</button>`;
 }
 function returnCard(x) {
 	const card = `<div class="card mb-5">
@@ -125,80 +124,43 @@ function returnAnswersHTML(correct, incorrects, ids) {
 	let incorrectHTML = "";
 	for (i = 0; i < incorrects.length; i++) {
 		let al = Math.floor(Math.random() * incorrects.length);
-		if(i === 0) {
-			incorrectHTML += `<div class="form-check">
-								<input class="form-check-input" type="radio" name="answer ${ids}" id="${ids}-${i}" value="${incorrects[i]}" checked>
-								<label class="form-check-label" for="${ids}-${i}">
-								${incorrects[i]}
-								</label>
-							</div>`;
-		} else {
 		incorrectHTML += `<div class="form-check">
 								<input class="form-check-input" type="radio" name="answer ${ids}" id="${ids}-${i}" value="${incorrects[i]}">
 								<label class="form-check-label" for="${ids}-${i}">
 								${incorrects[i]}
 								</label>
 							</div>`;
-		}
+
 		
 	}
 	return incorrectHTML;
 }
-function imprimeResultado(question) {
-	// console.log(question)
+function imprimeResultado() {
 	let answerCorrect = 0
 	let answerIncorrect = 0
-	// const getResult = question.filter((q) => question.correct_answer === question)
-
-	// lo que esté dentro del for se ejecuta 10 veces
-	for(let i = 0; i < getQuestionsForResult.length; i++) {
-		const getLengthIncorrect = getQuestionsForResult[i].incorrect_answers
-		// let xcvb = document.getElementsByName(`answer ${i}`)
-		// console.log(xcvb[i].checked)
-		// console.log(xcvb[i].value)
-		// for(let j = 0; j < getLengthIncorrect.length; j++) {
-		// 	let getValueQuestions = document.getElementById(`${i}-${j}`)
-		// 	console.log(getValueQuestions);
-		// 	// console.log(getValueQuestions.value)
-		// 	// console.log(getValueQuestions.checked)
-		// }
-		let options = document.getElementsByName(`answer ${i}`)
+	let checking = 0
+	getQuestionsForResult.forEach((question) => {
+		let optionChecked = ''
+		let options = document.getElementsByName(`answer ${question.id}`)
 		options.forEach(option => {
 			if(option.checked) {
-				console.log(option.value)
+				optionChecked = option.value
+				console.log(optionChecked)
 			}
 		})
+		if(optionChecked === question.correct_answer) {
+			answerCorrect++
+		} else if(!optionChecked) {
+			checking++
+		} else 
+			answerIncorrect++
+	})
 
-		// console.log(getValueQuestions);
-		// if(getValueQuestions[i].checked) {
-		// 	alert('Logrado')
-		// }
-		// if(getValueQuestions === getQuestionsForResult[i].correct_answer) {
-		// 	answerCorrect += 1
-		// } else {
-		// 	answerIncorrect += 1
-		// }
-
-
-
-		// console.log(getQuestionsForResult[i].correct_answer)
-		// console.log(getValueQuestions[i].value)
-	}
-	// console.log(answerIncorrect, answerCorrect)
-
-    // for (let w = 0; w < x; w++) {       
-    //     let memo=document.getElementsByName(w);
-    //     for (let i = 0; i < memo.length; i++) {
-    //         if (memo[i].checked) {
-    //             //if (memo[i].value === x.correct_answer) {
-    //             //    
-    //             //}
-    //             console.log ( memo[i].value)
-    //             console.log(y)
-    //             console.log ( memo[i])
-    //         }
-    // }
-    // }
+	if(checking > 0) {
+		alert('Te faltan preguntas por responder')
+	} else 
+		alert(`Tienes ${answerCorrect} correctas y ${answerIncorrect} incorrectas`)
+	
 }
 
 
