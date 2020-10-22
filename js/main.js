@@ -1,6 +1,6 @@
 import Category from './category.js'
-import API from './api.js'
 import Questions from './questions.js'
+import Results from './results.js'
 
 
 const category = new Category
@@ -8,12 +8,12 @@ category.getCategory()
 
 document.getElementById("get-questions").addEventListener('submit', (event) =>{
 	event.preventDefault()
-	const api = new API
-	api.getQuestions()
+	const questions = new Questions
+	questions.getQuestions()
 })
 
 document.getElementById("button-results").addEventListener('click', () =>{
-	const questions = new Questions
-	questions.imprimeResultado()
+	const results = new Results
+	results.imprimeResultado()
 })
 
