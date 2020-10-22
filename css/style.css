@@ -1,17 +1,57 @@
-<<<<<<< HEAD
+body {
+	background-image: url("../imgs/fondo.jpg");
+	background-size: cover;
+}
+
+.tittle-first {
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 20px;
+}
 
 .title {
-    font-weight: bold;
-=======
-.flex-con{
-    display: flex;
-    flex-wrap: wrap;
+	font-weight: bold;
 }
-.flex-con >div {
-    margin: 18px;
-    width: 20rem;
+
+.flex-con {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flex-con > div {
+	margin: 18px;
+	width: 20rem;
+	border: solid #0000002e 0.3rem;
+	border-radius: 4%;
+	box-shadow: 5px 6px 14px 0px black;
+}
+
+.button {
+	margin-bottom: 3rem;    
     border: solid #0000002e 0.3rem;
-    border-radius: 4%;
-    box-shadow: 5px 6px 14px 0px black;
->>>>>>> jonathan
+    border-radius: 5px;
+	box-shadow: 5px 6px 14px 0px black;
+	flex-wrap: nowrap;
+	height: 4rem;
+	width: 10%;
+	margin-left: 45%;
+	text-transform: uppercase;
+	font-weight: bold;	
+}
+
+.container-form-selctors {
+	background-color: #E3E3E3;
+	border-radius: 15px;
+	text-align: center;
+	padding-bottom: 30px;
+	padding-top: 25px;
+	width: 40%;
+	margin-left: 30%;
+}
+
+#container {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 50px;
 }
