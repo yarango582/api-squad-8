@@ -16,13 +16,14 @@
             <form id="get-questions">
                 <div class="form-group">
                   <label for="numberQuestions">Elige cuantas preguntas quieres</label>
-                  <select class="form-control" id="questions-number">
+                  <input type="number" class="form-control" id="questions-number" placeholder="Cantidad de preguntas" min="1" max="50" required>
+                  <!-- <select class="form-control" id="questions-number">
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="30">30</option>
                     <option value="40">40</option>
                     <option value="50">50</option>
-                  </select>
+                  </select> -->
                 </div>
                 <div class="form-group">
                     <label for="category">Categoría</label>
@@ -52,11 +53,13 @@
         </div>
     </div>
 </div>
-<div id="container" class="flex-con ml-5 mr-5">
-</div>
+
 
 <div>
-  <button id="button-results" class="d-none btn btn-primary button">enviar</button>
+  <form id="form-results">
+    <div id="container" class="flex-con ml-5 mr-5"></div>
+    <button id="button-results" class="d-none btn btn-primary button">enviar</button>
+  </form>
 </div>
 
 <script type="module" src="./js/main.js"></script>

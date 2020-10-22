@@ -71,7 +71,7 @@ export default class Questions {
         for (let i = 0; i < incorrects.length; i++) {
             let al = Math.floor(Math.random() * incorrects.length);
             incorrectHTML += `<div class="form-check">
-                                    <input class="form-check-input" type="radio" name="answer ${ids}" id="${ids}-${i}" value="${incorrects[i]}">
+                                    <input class="form-check-input" type="radio" name="answer ${ids}" id="${ids}-${i}" value="${incorrects[i]}" required>
                                     <label class="form-check-label" for="${ids}-${i}">
                                     ${incorrects[i]}
                                     </label>
@@ -97,4 +97,4 @@ export default class Questions {
                     </div>`;
         return card;
     }
-}
+} 

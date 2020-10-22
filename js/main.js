@@ -17,7 +17,8 @@ document.getElementById("get-questions").addEventListener('submit', (event) =>{
 	
 })
 
-document.getElementById("button-results").addEventListener('click', () =>{
+document.getElementById("form-results").addEventListener('submit', (event) =>{
+	event.preventDefault()
 	const results = new Results
 	results.imprimeResultado(questions.getQuestionsForResult)
 })

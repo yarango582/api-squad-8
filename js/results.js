@@ -2,8 +2,7 @@ export default class Results {
     imprimeResultado(questions) {
         let answerCorrect = 0
         let answerIncorrect = 0
-        let checking = 0
-        // const questions = new Questions
+        let score = 0
         console.log(questions)
         questions.forEach((question) => {
             let optionChecked = ''
@@ -16,16 +15,12 @@ export default class Results {
             })
             if(optionChecked === question.correct_answer) {
                 answerCorrect++
-            } else if(!optionChecked) {
-                checking++
             } else 
                 answerIncorrect++
         })
+        score = ((100 / questions.length) * answerCorrect)
     
-        if(checking > 0) {
-            alert('Te faltan preguntas por responder')
-        } else 
-            alert(`Tienes ${answerCorrect} correctas y ${answerIncorrect} incorrectas`)
+        alert(`Sacaste un puntaje de ${score.toFixed(2)}/100`)
         
     }
 }
