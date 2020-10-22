@@ -1,12 +1,11 @@
-import Questions from './questions.js'
 export default class Results {
-    imprimeResultado() {
+    imprimeResultado(questions) {
         let answerCorrect = 0
         let answerIncorrect = 0
         let checking = 0
-        const questions = new Questions
-        console.log(questions['getQuestionsForResult'])
-        questions.getQuestionsForResult.forEach((question) => {
+        // const questions = new Questions
+        console.log(questions)
+        questions.forEach((question) => {
             let optionChecked = ''
             let options = document.getElementsByName(`answer ${question.id}`)
             options.forEach(option => {
