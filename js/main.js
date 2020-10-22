@@ -96,8 +96,7 @@ function printCardsQuestions(questions) {
 		container.innerHTML += card;
     });
     const button = document.getElementById("button");
-    button.innerHTML+=``
-	button.innerHTML += `<button class="btn btn-primary button" onclick="imprimeresultado('${questions.length-1},${questions.correct_answer}')">enviar</button>`;
+    
 }
 function returnCard(x) {
 	const card = `<div class="card mb-5">
@@ -132,20 +131,34 @@ function returnAnswersHTML(correct, incorrects, ids) {
 	}
 	return incorrectHTML;
 }
-function imprimeresultado(x,y) {
-    for (let w = 0; w < x; w++) {       
-        let memo=document.getElementsByName(w);
-        for (let i = 0; i < memo.length; i++) {
-            if (memo[i].checked) {
-                //if (memo[i].value === x.correct_answer) {
-                //    
-                //}
-                console.log ( memo[i].value)
-                console.log(y)
-                console.log ( memo[i])
-            }
-    }
-    }
+function printResult() {
+	let answerCorrect = 0
+	let answerIncorrect = 0
+	let checking = 0
+	const questions = new Questions
+	console.log(questions['getQuestionsForResult'])
+	questions.getQuestionsForResult.forEach((question) => {
+		let optionChecked = ''
+		let options = document.getElementsByName(`answer ${question.id}`)
+		options.forEach(option => {
+			if(option.checked) {
+				optionChecked = option.value
+				console.log(optionChecked)
+			}
+		})
+		if(optionChecked === question.correct_answer) {
+			answerCorrect++
+		} else if(!optionChecked) {
+			checking++
+		} else 
+			answerIncorrect++
+	})
+
+	if(checking > 0) {
+		alert('Te faltan preguntas por responder')
+	} else 
+		alert(`Tienes ${answerCorrect} correctas y ${answerIncorrect} incorrectas`)
+	
 }
 
 
